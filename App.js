@@ -5,14 +5,14 @@ import Search from "./src/components/Search";
 import {data} from "./src/helpers/filmDatas";
 
 export default function App() {
-    const [searchText, setSearchText] = useState('mon texte');
+    const [searchText, setSearchText] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [movies, setMovies] = useState(data);
     const [totalPages, setTotalPages] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
     const getSearchedMovies = (searchedText) => {
-        const newMovies = data.filter(movie => movie.title.toLowerCase.includes(searchedText.toLowerCase()));
+        const newMovies = data.filter(movie => movie.title.toLowerCase().includes(searchedText.toLowerCase()));
         setMovies(newMovies);
     }
 
