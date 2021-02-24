@@ -7,34 +7,28 @@ export default class ListResult extends React.Component {
         const {movies, onReachedEnd} = this.props;
 
         return (
-            // <SafeAreaView></SafeAreaView> // remove it for android devices
-            <View style={styles.container}>
-                <FlatList
-                    ItemSeparatorComponent={
-                        (({highlighted}) => (
-                            <View
-                                style={[
-                                    styles.separator,
-                                    highlighted && {marginLeft: 0}
-                                ]}
+            <SafeAreaView style={{flex: 1}}>
+                <View style={styles.container}>
+                    <FlatList
+                        ItemSeparatorComponent={(({highlighted}) => (
+                            <View style={[styles.separator, highlighted && {marginLeft: 0}]}/>
+                        ))}
+                        style={{flex: 1}}
+                        data={movies}
+                        keyExtractor={(key) => String(key.id) + Math.random()}
+                        renderItem={(movie) =>
+                            <Card
+                                key={movie.item.id.toString() + Math.random()}
+                                posterUrl={movie.item.poster_path}
+                                movieTitle={movie.item.title}
+                                releaseDate={movie.item.release_date}
                             />
-                        ))
-                    }
-                    style={{flex: 1}}
-                    data={movies}
-                    keyExtractor={(key) => String(key.id) + Math.random()}
-                    renderItem={(movie) =>
-                        <Card
-                            key={movie.item.id.toString() + Math.random()}
-                            posterUrl={movie.item.poster_path}
-                            movieTitle={movie.item.title}
-                            releaseDate={movie.item.release_date}
-                        />
-                    }
-                    onEndReached={onReachedEnd}
-                    onEndReachedThreshold={0.8}
-                />
-            </View>
+                        }
+                        onEndReached={onReachedEnd}
+                        onEndReachedThreshold={0.8}
+                    />
+                </View>
+            </SafeAreaView>
         )
     }
 }

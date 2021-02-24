@@ -12,7 +12,7 @@ export default class Search extends React.Component {
                     <TextInput
                         style={styles.textinput}
                         onChangeText={(text) => onSearch(text)}
-                        placeholder='Titre du film'
+                        placeholder='Rechercher un film'
                     />
                 </View>
             </View>

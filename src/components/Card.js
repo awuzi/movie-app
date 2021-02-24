@@ -12,7 +12,7 @@ export const Card = ({movieTitle, releaseDate, posterUrl}) => {
                     <Image
                         style={styles.moviePicture}
                         resizeMode={'contain'}
-                        source={{uri: 'https://www.cinesud-affiches.com/21852-big_default/affiche-du-film-john-wick-parabellum.jpg'}}
+                        source={{uri: posterUrl}}
                     />
                 </View>
 

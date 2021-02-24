@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StatusBar, View } from 'react-native';
 import ListResult from './src/components/ListResult';
 import Search from "./src/components/Search";
-import data from "./src/helpers/filmDatas";
+import {data} from "./src/helpers/filmDatas";
 
 export default function App() {
     const [searchText, setSearchText] = useState('mon texte');
@@ -12,7 +12,7 @@ export default function App() {
     const [isLoading, setIsLoading] = useState(false);
 
     const getSearchedMovies = (searchedText) => {
-        const newMovies = data.filter(movie => movie.title.includes(searchedText));
+        const newMovies = data.filter(movie => movie.title.toLowerCase.includes(searchedText.toLowerCase()));
         setMovies(newMovies);
     }
 
@@ -25,9 +25,6 @@ export default function App() {
 
     useEffect(() => {
         fetchMovies();
-        // StatusBar.setHidden(true);
-        // StatusBar.setBackgroundColor('#FF573300');
-        // StatusBar.setTranslucent(true)
     }, []);
 
     return (
