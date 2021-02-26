@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableHighlight, View} from 'react-native'
+import { Rating, AirbnbRating } from 'react-native-elements';
 
 export const Card = ({movieTitle, releaseDate, posterUrl}) => {
     return (
@@ -17,9 +18,15 @@ export const Card = ({movieTitle, releaseDate, posterUrl}) => {
                 </View>
 
                 <View style={styles.desc}>
-                    <Text style={styles.desc_title}>{movieTitle}</Text>
+                    <Text style={styles.desc_title}>{movieTitle.slice(0,20)}</Text>
                     <Text style={styles.desc_date}>{releaseDate}</Text>
                 </View>
+                <AirbnbRating
+                    count={5}
+                    reviews={["Terrible", "Bad", "Meh", "OK", "Good"]}
+                    defaultRating={5}
+                    size={10}
+                />
             </View>
         </TouchableHighlight>
     )

@@ -19,7 +19,7 @@ export default class ListResult extends React.Component {
                         renderItem={(movie) =>
                             <Card
                                 key={movie.item.id.toString() + Math.random()}
-                                posterUrl={movie.item.poster_path}
+                                posterUrl={`http://image.tmdb.org/t/p/w500/${movie.item.poster_path}`}
                                 movieTitle={movie.item.title}
                                 releaseDate={movie.item.release_date}
                             />
